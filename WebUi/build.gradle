@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+ext {
+    moduleName = "frameworktwo.webui"
+    cucumberVer = "6.9.0"
+    allureVersion = "2.13.6"
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations.testCompile {
+    exclude group: "io.qameta.allure", module: "allure-junit4-aspect"
+}
+
+dependencies {
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '5.17.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-core', version: "$cucumberVer"
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: "$cucumberVer"
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: "$cucumberVer"
+
+    testImplementation group: 'io.qameta.allure', name: 'allure-cucumber6-jvm', version: '2.13.8'
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junitVer"
+}
+
+compileTestJava {
+    inputs.property "moduleName", "$moduleName"
+    doFirst {
+        options.compilerArgs = ["--module-path", classpath.asPath,
+                                "--add-modules", "com.codeborne.selenide",
+                                "--add-modules", "io.cucumber.java",
+                                "--add-modules", "org.apiguardian.api",
+                                "--add-modules", "io.qameta.allure.cucumber6jvm"
+                                ]
+        classpath = files()
+    }
+}
+
+test {
+    systemProperties System.getProperties()
+    useJUnit()
+    outputs.upToDateWhen { false }
+}
+
+allure {
+    autoconfigure = true
+    aspectjweaver = false
+    version = allureVersion
+    clean = true
+}

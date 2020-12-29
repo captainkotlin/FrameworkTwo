@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    moduleName = "WebApi"
+    cucumberVer = "6.9.0"
+    groovyVer = "3.0.6"
+    karateVer = "0.9.6"
+}
+
+sourceSets {
+    test {
+        resources {
+            srcDirs file('src/test/java'), file('src/test/resources')
+            exclude '**/*.java'
+        }
+    }
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVer"
+    testImplementation group: 'com.intuit.karate', name: 'karate-junit5', version: "$karateVer"
+    testImplementation group: 'com.intuit.karate', name: 'karate-apache', version: "$karateVer"
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: "$cucumberVer"
+
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "$junitVer"
+    testRuntime group: "org.codehaus.groovy", name: "groovy", version: "$groovyVer"
+    testRuntime group: "org.codehaus.groovy", name: "groovy-xml", version: "$groovyVer"
+    testRuntime group: "org.codehaus.groovy", name: "groovy-json", version: "$groovyVer"
+}
+
+compileTestJava {
+    inputs.property "moduleName", "$moduleName"
+    doFirst {
+//        options.compilerArgs = ["--module-path", classpath.asPath,
+//                                "--add-modules", "karate.junit5"]
+        classpath = classpath
+    }
+}
+
+test {
+    systemProperties System.getProperties()
+    useJUnitPlatform() {
+        include "**/*"
+    }
+    outputs.upToDateWhen { false }
+}

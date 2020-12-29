@@ -1,0 +1,7 @@
+<testsuite failures="0" name="src/test/java/feature.feature" skipped="0" tests="1" time="0.072156">
+  <testcase classname="src.test.java.feature" name="Scenario1" time="0.072156">
+    <system-out>Given def myVar = read("data.js") ......................................... passed
+Then print myVar .......................................................... passed
+* def myNum = 5 ........................................................... passed</system-out>
+  </testcase>
+</testsuite>

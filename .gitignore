@@ -1,0 +1,14 @@
+# IntellijIdea files
+*.iml
+.idea
+out
+debug.*
+
+# Gradle
+.gradle
+
+# Allure
+.allure
+
+# Build
+build/

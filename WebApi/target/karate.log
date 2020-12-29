@@ -1,0 +1,3915 @@
+23:32:27.663 [main] ERROR com.intuit.karate.core.FeatureParser - syntax error: mismatched input '<EOF>' expecting {FEATURE_TAGS, FEATURE}
+23:32:27.667 [main] ERROR com.intuit.karate.core.FeatureParser - not a valid feature file: src/test/java/feature.feature - mismatched input '<EOF>' expecting {FEATURE_TAGS, FEATURE}
+23:32:27.667 [main] ERROR com.intuit.karate.Runner - karate parallel runner failed: 
+23:33:08.642 [main] INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+23:33:40.441 [main] INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+23:33:40.583 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - karate.env system property was:  
+23:33:40.647 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - [print] world
+23:33:40.738 [pool-1-thread-1] INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: src/test/java/feature.feature
+00:27:17.945 [main] INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+00:27:18.111 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - karate.env system property was:  
+00:27:18.240 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - [print] {
+  "name": "Alexander",
+  "surname": "Zavaliy"
+}
+
+00:27:18.328 [pool-1-thread-1] INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: src/test/java/feature.feature
+14:03:52.902 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+14:03:52.962 [Test worker] ERROR com.intuit.karate - javascript function call failed: java.lang.RuntimeException: unexpected 'configure' key: 'logmodifier'
+14:03:52.963 [Test worker] ERROR com.intuit.karate - failed function body: function() {
+  var env = karate.env; // get java system property 'karate.env'
+  karate.log('karate.env system property was:', env);
+  if (!env) {
+    env = 'dev'; // a custom 'intelligent' default
+  }
+  var config = { // base config JSON
+    appId: 'my.app.id',
+    appSecret: 'my.secret',
+    someUrlBase: 'https://some-host.com/v1/auth/',
+    anotherUrlBase: 'https://another-host.com/v1/'
+  };
+  if (env == 'stage') {
+    // over-ride only those that need to be
+    config.someUrlBase = 'https://stage-host/v1/auth';
+  } else if (env == 'e2e') {
+    config.someUrlBase = 'https://e2e-host/v1/auth';
+  }
+  // don't waste time waiting for a connection or if servers don't respond within 5 seconds
+  karate.configure('connectTimeout', 5000);
+  karate.configure('readTimeout', 5000);
+  karate.configure('report', { showLog: true, showAllSteps: false });
+
+  var LM = Java.type('utils.CustomLogModifier');
+  karate.configure('logmodifier', new LM())
+
+  var driverConfig = { type:'chromedriver', start: false, webDriverUrl:'https://localhost:4444/wd/hub' };
+  karate.configure('driver', driverConfig);
+  return config;
+}
+14:03:52.965 [Test worker] ERROR com.intuit.karate - evaluation of 'karate-config.js' failed: javascript function call failed: java.lang.RuntimeException: unexpected 'configure' key: 'logmodifier'
+14:04:36.664 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+14:04:36.731 [Test worker] INFO  com.intuit.karate - [print] {
+  "name": "Alexander",
+  "surname": "Zavaliy"
+}
+
+01:04:40.793 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:06:54.686 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:07:12.179 [main] INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+01:07:12.336 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - karate.env system property was:  
+01:07:14.139 [ForkJoinPool-1-worker-3] DEBUG com.intuit.karate - request
+1 > GET https://gorest.co.in/public-api/users/726
+1 > User-Agent: Jersey/2.30 (HttpUrlConnection 14.0.2)
+
+01:07:14.141 [ForkJoinPool-1-worker-3] DEBUG com.intuit.karate - response time in milliseconds: 1393.08
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:07:13 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Origin, Accept-Encoding]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [sameorigin, SAMEORIGIN]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 9cf5b49e-ef97-4ff5-90d2-3d3ea6ef5f8b
+1 < X-Runtime: 0.002766
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:07:14.230 [pool-1-thread-1] INFO  com.intuit.karate.Runner - <<fail>> feature 1 of 1: src/test/java/gorest/users/getuser.feature
+01:07:53.357 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:07:53.630 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:07:54.929 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1295.89
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:07:54 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 965a0cdb-81c2-492d-8de6-3a7668ec009a
+1 < X-Runtime: 0.002170
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:09:59.314 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:09:59.585 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:10:00.890 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1301.16
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:10:00 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: feba00e4-7a6b-4090-823e-fdefc1fbdea4
+1 < X-Runtime: 0.002877
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:10:51.961 [Test worker] ERROR com.intuit.karate.core.FeatureParser - syntax error: mismatched input '{' expecting <EOF>
+01:10:51.967 [Test worker] ERROR com.intuit.karate.core.FeatureParser - not a valid feature file: classpath:gorest/users/getuser.feature - mismatched input '{' expecting <EOF>
+01:11:04.784 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:11:05.094 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:11:06.410 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1313.81
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:11:06 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 98f7999e-bda8-4a19-9e57-b86183a22e46
+1 < X-Runtime: 0.002631
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:11:16.975 [main] INFO  com.intuit.karate.Runner - waiting for parallel features to complete ...
+01:11:17.092 [ForkJoinPool-1-worker-3] INFO  com.intuit.karate - karate.env system property was:  
+01:11:17.377 [ForkJoinPool-1-worker-3] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/14.0.2)
+
+01:11:18.675 [ForkJoinPool-1-worker-3] DEBUG com.intuit.karate - response time in milliseconds: 1296.69
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:11:18 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 55b223de-f599-4287-8f64-03086370abd0
+1 < X-Runtime: 0.002177
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:11:18.757 [pool-1-thread-1] INFO  com.intuit.karate.Runner - <<pass>> feature 1 of 1: src/test/java/gorest/users/getuser.feature
+01:11:23.705 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:11:23.941 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:11:25.261 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1316.56
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:11:25 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 68d28f13-de00-472e-99b6-d5e6b03fa0cf
+1 < X-Runtime: 0.002249
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+01:20:43.713 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:20:43.959 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:20:44.377 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 415.06
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < CF-Cache-Status: REVALIDATED
+1 < CF-RAY: 608f037bec663280-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:20:44 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=e89DAdmvMDaVJzL9JHSLsbEGPsLeHk6iJcRCNUIkFilS10z3k3BqZyhyCSxNs5qKDiSKKgINTlwfYEE19AWfIrOLJj%2Fk%2BCnBMPI%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=de6e64bdc1f2d531d8714fe95a3c315d71609197644; expires=Wed, 27-Jan-21 23:20:44 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d408176000032801eae7000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:22:13.895 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:22:14.150 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:22:14.356 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 202.32
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 90
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f05af8a212d30-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:22:14 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=5Qozh7pWiY64wVTZEJGJyuU%2FHdqqC8DUgUBXogcOjxK8gLA3TxUr%2Bi7Ma6fvL1pG74k7z7wxu9ilxw0yj%2BQ%2Fye31Y2fdpcK8M%2Fs%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d820718e26a14255c719f121fb0f32f641609197734; expires=Wed, 27-Jan-21 23:22:14 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d41e1b900002d30311b4000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:22:14.362 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.id, actual: null, expected: com.jayway.jsonpath.internal.JsonContext@a0ee347, reason: actual json-path does not exist
+01:22:34.291 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:22:34.554 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:22:34.762 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 204.84
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 110
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f062f1aea3a59-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:22:34 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=TzsvwI8e71KnR9qf%2FXbHGiCsMe5EsrqK%2Bp8YKJP18ox%2FZFjCruf1rxctxnzanfvq0F3qf2ftFywaSbqsNDUTnSXhLTQ2YJzdqWA%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=dc993adc069869956106021d9f0e96e561609197754; expires=Wed, 27-Jan-21 23:22:34 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d42317000003a59fc148000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:22:34.768 [Test worker] ERROR com.intuit.karate - assertion failed: path: $[0], actual: {"last_name":"Lawson","id":7,"avatar":"https:\/\/reqres.in\/img\/faces\/7-image.jpg","first_name":"Michael","email":"michael.lawson@reqres.in"}, expected: {id=#number}, reason: actual value has 4 more key(s) than expected: {last_name=Lawson, avatar=https://reqres.in/img/faces/7-image.jpg, first_name=Michael, email=michael.lawson@reqres.in}
+01:24:03.131 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:24:03.417 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:24:03.612 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 190.38
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 199
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f085a6f183a59-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:24:03 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=0r11hJlM%2B5X1nukg2Oosiq%2FIemePOAtEpN6lZDrAmrJoJoQaDVxGBRJ6fEobivhQvFQK5c7VJGvu52yfCOoWzTYg7E7Zhlio6as%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d4efb3bce136709445b62910085a4e7821609197843; expires=Wed, 27-Jan-21 23:24:03 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d438c7d00003a59fd26e000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:24:28.161 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:24:28.458 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:24:28.650 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 188.09
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 224
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f08f6df5c2d43-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:24:28 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=%2F4iwHEUJlDfGJhrDu%2FAcKqzdxqfKeMdrbKt2FzHldtTUO7AuRZS1F5NWuZpxebm8PfmvUiHpyCshh9fBTPm4bsEGxgsP1Fmmaco%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d0424e160f668538871acb5136f5840ec1609197868; expires=Wed, 27-Jan-21 23:24:28 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d43ee4a00002d4363361000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:26:42.481 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:26:42.714 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:26:42.892 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 173.63
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 358
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f0c3de9ee2de8-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:26:42 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=7DUSFCPLwiiVjkV4FJLqRMj%2BwFhw95UWevwetP%2BIGDSbFPbYWy%2Fiy4aoFNAc8xjcg8iKBlNYQnK%2BO9TdUxAi5WAhVyV6yRtYzF4%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d4989b12a8a9c2a04e2974782cbf6f8441609198002; expires=Wed, 27-Jan-21 23:26:42 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d45fab200002de8672aa000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:26:42.900 [Test worker] ERROR com.intuit.karate - assertion failed: path: $[0], actual: {"last_name":"Lawson","id":7,"avatar":"https:\/\/reqres.in\/img\/faces\/7-image.jpg","first_name":"Michael","email":"michael.lawson@reqres.in"}, expected: {id=#number, firstname=#string, email=#string, avatar=#string}, reason: all key-values did not match, expected has un-matched keys: [firstname]
+01:27:26.753 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:27:27.017 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:27:27.210 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 189.07
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 403
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f0d52eeed2dec-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:27:27 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=KPLq7PevcLPgdvrKnyCaZ2W22yv5Ursm81er6vw7rW3bzVZT9bVYC%2BhLGzWKMRKbOG7oI8AqZ%2F9QXfK6zTlL0TsTfc%2F6QjyI24s%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d8b0eb2f99ac5bb921dddbcf0f892beac1609198047; expires=Wed, 27-Jan-21 23:27:27 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d46a7cc00002decdc23a000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:28:07.599 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:28:07.937 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:28:08.130 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 189.69
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 444
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f0e52a9162da0-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:28:08 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=FpcwpzLfbd5n0uSnPaXbnsCU5hwXlmiMP4LDFhfsuK%2BsTMHzdsbYzUoLiGgxVa1fYJXsn7BHye%2FB4aeAdbv3uUEOPWHzL2W6yXw%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d2d640c5138970999fb66d9cc110bf2181609198088; expires=Wed, 27-Jan-21 23:28:08 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d4747a600002da09a01d000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:29:51.190 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:29:51.423 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:29:51.620 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 193.29
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 547
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f10d96f952d8b-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:29:51 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=uPBwXz1w2XYzupqYVimwaFpX7mAEsKDzvxFJVg0oNPMxrbNubqYw%2FEmGPCmw%2Bg%2FrMyJXBgT8zjC7u7q9AgReKJQOWLMq4Jsx3U4%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=daef13ab8bdb2e9bfbe2988023f8df23b1609198191; expires=Wed, 27-Jan-21 23:29:51 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d48dbe400002d8b4bb60000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:30:06.276 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:30:06.543 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:30:06.748 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 200.59
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 562
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f1137fd7c2d67-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:30:06 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=RSxhg0s4%2F7V%2B%2FgHqTqi%2F5Rdjzj7hNvtzFR1aq6WdK3DxgO%2B5bsHuHFBRMHZrvM2Z4gFt43sgNsdev4pBDVcQvEN9JojPU%2B%2Bwd8I%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d64ec5619831bbfcad06346582abf91011609198206; expires=Wed, 27-Jan-21 23:30:06 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d4916f900002d67a5aa8000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:30:06.756 [Test worker] ERROR com.intuit.karate - assertion failed: path: $[*].data.id, actual: [], expected: [7,8,9,10,11,12], reason: actual and expected arrays are not the same size - 0:6
+01:30:39.161 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:30:39.456 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:30:39.700 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 239.54
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 595
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f1205ef7b2deb-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:30:39 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=8q6uYjUeba1%2FGKyx4inv8a83sCEWFFnrTfn9IyS%2BFkiPe1qJlUNZcIM%2FZlH9A8YC1EMUKJ%2Bjta18hy4uusOGkXohGaNn%2BRXSKNw%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d1f429f6eb2b0ad94d211fe6fa69f62671609198239; expires=Wed, 27-Jan-21 23:30:39 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d4997b500002deb75a83000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:30:39.711 [Test worker] ERROR com.intuit.karate - assertion failed: path: $[*].data, actual: [], expected: [7,8,9,10,11,12], reason: actual and expected arrays are not the same size - 0:6
+01:31:07.942 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:31:08.222 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:31:08.406 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 181.61
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 624
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f12b968903274-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:31:08 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=XCIa4k9U7Lt9IZKbJKiNHQz%2B4exqwkjOU%2FojE7cDh0%2FhpRmldp1CC0%2B8vglshClozCFy4m6xUyZjYT3nrRqOLyVZv1vqT8d9M3A%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d10adaa9b997f56adfd8e072acee6a2171609198268; expires=Wed, 27-Jan-21 23:31:08 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d4a07dd00003274600a5000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:31:08.413 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.data.id, actual: null, expected: com.jayway.jsonpath.internal.JsonContext@2a5b2e7e, reason: actual json-path does not exist
+01:31:38.133 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:31:38.377 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:31:38.577 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 195.37
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 654
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f1375fb1622fb-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:31:38 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=mvVPWuDmPZq2A5w%2BxauNt0xIIMNSAcPDt7zC4mSARwWgedkRKcjkTlL5A45Q%2FxAlySDRdBamCy5Kw7u%2FGCZq0%2FzezmjAIhyzGTw%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d00187fa55e3689c1ecab7ca930d387c01609198298; expires=Wed, 27-Jan-21 23:31:38 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d4a7db6000022fb3483e000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+01:59:56.128 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:59:56.395 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer: 6997ed0cd98bb7c5e030e33fd02ff6c7bc54de78c82f3f456a1e4658d4ada538
+1 > Connection: Keep-Alive
+1 > Content-Length: 94
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"zavaliy1988@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+01:59:57.705 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1306.37
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:59:57 GMT
+1 < ETag: W/"65ab5ef0fb80a32b1723c5368d8edb14"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: d9035dde-ff02-4070-b115-ab425d7e4feb
+1 < X-Runtime: 0.001526
+1 < X-XSS-Protection: 1; mode=block
+{"code":401,"meta":null,"data":{"message":"Authentication failed"}}
+
+01:59:57.711 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":401,"data":{"message":"Authentication failed"},"meta":null}, expected: '', reason: actual value is not a string
+01:59:57.797 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+01:59:57.814 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+01:59:58.994 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1178.26
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Mon, 28 Dec 2020 23:59:58 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: be204b65-b9a7-40e2-9255-1c7af8f2d590
+1 < X-Runtime: 0.002548
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+02:01:16.683 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:01:16.982 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer: 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 94
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"zavaliy1988@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:01:18.333 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1348.29
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:01:18 GMT
+1 < ETag: W/"65ab5ef0fb80a32b1723c5368d8edb14"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: e427c3e9-da30-44dd-817b-e422a052bbb2
+1 < X-Runtime: 0.001792
+1 < X-XSS-Protection: 1; mode=block
+{"code":401,"meta":null,"data":{"message":"Authentication failed"}}
+
+02:01:18.339 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":401,"data":{"message":"Authentication failed"},"meta":null}, expected: '', reason: actual value is not a string
+02:01:48.318 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:02:02.672 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:02:02.947 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer: 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 94
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"zavaliy1988@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:02:04.214 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1262.80
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:02:04 GMT
+1 < ETag: W/"65ab5ef0fb80a32b1723c5368d8edb14"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: a6cc4987-7b14-4060-8041-8e06b530f429
+1 < X-Runtime: 0.001550
+1 < X-XSS-Protection: 1; mode=block
+{"code":401,"meta":null,"data":{"message":"Authentication failed"}}
+
+02:02:04.222 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":401,"data":{"message":"Authentication failed"},"meta":null}, expected: '', reason: actual value is not a string
+02:02:57.008 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:02:57.293 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 94
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"zavaliy1988@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:02:58.588 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1290.79
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:02:58 GMT
+1 < ETag: W/"c449a15232e402aaacaed9f43dd2e742"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 1a1788a1-b66f-49d9-87b3-15b94b0f18ed
+1 < X-Runtime: 0.019137
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"email","message":"has already been taken"}]}
+
+02:02:58.593 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":422,"data":[{"field":"email","message":"has already been taken"}],"meta":null}, expected: '', reason: actual value is not a string
+02:08:06.408 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:08:06.710 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 86
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"email\n  \"name\": \"Alexander Zavaliy\"","gender":"Male","status":"Active"}
+
+02:08:08.059 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1343.70
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:08:07 GMT
+1 < ETag: W/"9743b3934df6f8c2d5291aa9366e5bfd"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 631aa607-8cc9-46c7-be8f-c586ed64a853
+1 < X-Runtime: 0.018120
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"name","message":"can't be blank"},{"field":"email","message":"is invalid"}]}
+
+02:08:08.064 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":422,"data":[{"field":"name","message":"can't be blank"},{"field":"email","message":"is invalid"}],"meta":null}, expected: '', reason: actual value is not a string
+02:08:29.922 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:08:30.229 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 78
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"email","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:08:31.530 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1298.20
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:08:31 GMT
+1 < ETag: W/"e1e97d2f5aca2a67b3ce39e145200925"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: c65fcebb-7a28-41e4-9016-8320c5e2b67b
+1 < X-Runtime: 0.020600
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"email","message":"is invalid"}]}
+
+02:08:31.536 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":422,"data":[{"field":"email","message":"is invalid"}],"meta":null}, expected: '', reason: actual value is not a string
+02:08:48.363 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:08:48.616 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 78
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"email","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:08:49.960 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1339.71
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:08:49 GMT
+1 < ETag: W/"e1e97d2f5aca2a67b3ce39e145200925"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 2120dce4-b383-481f-b297-a50d9587dbd4
+1 < X-Runtime: 0.021258
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"email","message":"is invalid"}]}
+
+02:08:49.965 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":422,"data":[{"field":"email","message":"is invalid"}],"meta":null}, expected: '', reason: actual value is not a string
+02:09:31.882 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:10:02.551 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:10:02.869 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"fadbe837-bfe8-4ffa-b4d2-632ba86ae868@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:10:04.232 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1357.74
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:10:04 GMT
+1 < ETag: W/"8221850831bc7bfc43fecff0977990ff"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1360
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 8ec68385-7434-4909-80af-695b7e8d8387
+1 < X-Runtime: 0.017628
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1360,"name":"Alexander Zavaliy","email":"fadbe837-bfe8-4ffa-b4d2-632ba86ae868@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:40:04.019+05:30","updated_at":"2020-12-29T05:40:04.019+05:30"}}
+
+02:10:04.240 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: {"code":201,"data":{"gender":"Male","updated_at":"2020-12-29T05:40:04.019+05:30","name":"Alexander Zavaliy","created_at":"2020-12-29T05:40:04.019+05:30","id":1360,"email":"fadbe837-bfe8-4ffa-b4d2-632ba86ae868@gmail.com","status":"Active"},"meta":null}, expected: '', reason: actual value is not a string
+02:12:48.492 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:12:48.740 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+02:12:48.951 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 208.27
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 3124
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 608f4fc5cf6022fb-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:12:48 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=E2saoCM7sUihdp1IOhjkJwYdknR91mCch2EXcqg4BiXaTMtdpo4zDPQjk0KcqdxnBcke7jryz4WWKajnYO7gTYK4H03dBF9ViOc%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d85ff147f9e662a8d6bc4c548ec40797a1609200768; expires=Thu, 28-Jan-21 00:12:48 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074d702f9b000022fbf7088000000001
+{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
+
+02:13:27.854 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:13:28.127 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"42ffa22c-815f-4ebc-bda5-9f50754b726c@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:13:29.435 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1303.22
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:13:29 GMT
+1 < ETag: W/"392e945ed94a52c6d9a5e29676941569"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1361
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 6c387f53-2e95-4895-93ed-3c8664ec019c
+1 < X-Runtime: 0.017857
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1361,"name":"Alexander Zavaliy","email":"42ffa22c-815f-4ebc-bda5-9f50754b726c@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:43:29.229+05:30","updated_at":"2020-12-29T05:43:29.229+05:30"}}
+
+02:13:29.438 [Test worker] ERROR com.intuit.karate - status code was: 200, expected: 201, response time: 1303, url: https://gorest.co.in/public-api/users, response: {"code":201,"data":{"gender":"Male","updated_at":"2020-12-29T05:43:29.229+05:30","name":"Alexander Zavaliy","created_at":"2020-12-29T05:43:29.229+05:30","id":1361,"email":"42ffa22c-815f-4ebc-bda5-9f50754b726c@gmail.com","status":"Active"},"meta":null}
+02:14:03.615 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:14:03.877 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"72900c1e-4520-4383-9a9b-ca4dceb6f7ae@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:14:05.174 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1293.29
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:14:04 GMT
+1 < ETag: W/"20efdfd53db3c8ed7395bb2c51459622"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1363
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 6b708b11-a7af-4fb9-8776-0a782d8fe62b
+1 < X-Runtime: 0.017538
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1363,"name":"Alexander Zavaliy","email":"72900c1e-4520-4383-9a9b-ca4dceb6f7ae@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:44:04.974+05:30","updated_at":"2020-12-29T05:44:04.974+05:30"}}
+
+02:14:05.177 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.id, actual: null, expected: com.jayway.jsonpath.internal.JsonContext@2f724973, reason: actual json-path does not exist
+02:14:37.361 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:14:37.668 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"6def0ced-aeb7-4afa-a60f-2b5f6ad4db50@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:14:38.984 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1312.69
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:14:38 GMT
+1 < ETag: W/"8c2d9cd28530ef0b291dc85dc435b6f4"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1364
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 08691165-f3f2-4a78-aed4-5fe1f2a66e8f
+1 < X-Runtime: 0.016790
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1364,"name":"Alexander Zavaliy","email":"6def0ced-aeb7-4afa-a60f-2b5f6ad4db50@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:44:38.787+05:30","updated_at":"2020-12-29T05:44:38.787+05:30"}}
+
+02:14:38.986 [Test worker] ERROR com.intuit.karate - status code was: 200, expected: 201, response time: 1313, url: https://gorest.co.in/public-api/users, response: {"code":201,"data":{"gender":"Male","updated_at":"2020-12-29T05:44:38.787+05:30","name":"Alexander Zavaliy","created_at":"2020-12-29T05:44:38.787+05:30","id":1364,"email":"6def0ced-aeb7-4afa-a60f-2b5f6ad4db50@gmail.com","status":"Active"},"meta":null}
+02:15:24.327 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:15:24.635 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"31e1eea1-673f-4dfa-afab-a01fcafb6324@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:15:25.958 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1319.51
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:15:25 GMT
+1 < ETag: W/"83125d46ebc99fd8af895f7158ff3c09"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1365
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: dc35d9f5-e9a6-4912-a2a3-84c03146764f
+1 < X-Runtime: 0.017073
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1365,"name":"Alexander Zavaliy","email":"31e1eea1-673f-4dfa-afab-a01fcafb6324@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:45:25.752+05:30","updated_at":"2020-12-29T05:45:25.752+05:30"}}
+
+02:15:43.982 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:15:44.255 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"698cf393-72d3-4f07-ae32-3b9e0aa8c20c@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:15:45.607 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1349.04
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:15:45 GMT
+1 < ETag: W/"a1bdacc47480add4594086770ba3ccdd"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1366
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: eef41d1f-4208-4b00-98dd-f01a1457e585
+1 < X-Runtime: 0.018266
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1366,"name":"Alexander Zavaliy","email":"698cf393-72d3-4f07-ae32-3b9e0aa8c20c@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:45:45.391+05:30","updated_at":"2020-12-29T05:45:45.391+05:30"}}
+
+02:15:45.614 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.data.id, actual: 1366, expected: {id=#number}, reason: actual value is not map-like
+02:16:12.647 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:16:12.918 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"875ee770-dbb0-4186-bfaf-a09eae7c2fdf@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:16:14.253 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1331.35
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:16:14 GMT
+1 < ETag: W/"40e9a40257026470ed6ab3655b339f1a"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1367
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: b98594c3-39d8-4c45-a7ca-ed27fd8e2562
+1 < X-Runtime: 0.017342
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1367,"name":"Alexander Zavaliy","email":"875ee770-dbb0-4186-bfaf-a09eae7c2fdf@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:46:14.042+05:30","updated_at":"2020-12-29T05:46:14.042+05:30"}}
+
+02:19:10.173 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:19:10.482 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"3c0ac0d6-c832-4262-a85f-a5291c63bc35@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:19:11.851 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1364.86
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:19:11 GMT
+1 < ETag: W/"5647a26250f872693fd6cc4245a96be0"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1368
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: e27195be-ca6d-4e63-8913-55168c1b9d47
+1 < X-Runtime: 0.016453
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1368,"name":"Alexander Zavaliy","email":"3c0ac0d6-c832-4262-a85f-a5291c63bc35@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:49:11.647+05:30","updated_at":"2020-12-29T05:49:11.647+05:30"}}
+
+02:25:23.614 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:25:23.956 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"62a5ed36-8fac-4692-b842-f367055734ef@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:25:25.280 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1320.26
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:25:25 GMT
+1 < ETag: W/"25df1c16d8d58837130a7f138deccc3f"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1369
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 46b04238-42a0-4e2b-a63b-f08bd76d4526
+1 < X-Runtime: 0.018033
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1369,"name":"Alexander Zavaliy","email":"62a5ed36-8fac-4692-b842-f367055734ef@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T05:55:25.075+05:30","updated_at":"2020-12-29T05:55:25.075+05:30"}}
+
+02:25:25.298 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"0aeb4f60-ea50-48dd-b275-269a64da05df@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+02:25:26.464 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1165.13
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:25:26 GMT
+1 < ETag: W/"caddfc99e39311098993bd80971e806d"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1370
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 7bc1cf6f-919e-4de5-a00a-d1b34816964f
+1 < X-Runtime: 0.015662
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1370,"name":"Alice from Wonderland","email":"0aeb4f60-ea50-48dd-b275-269a64da05df@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T05:55:26.278+05:30","updated_at":"2020-12-29T05:55:26.278+05:30"}}
+
+02:34:06.329 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+02:34:06.678 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"99a17694-b185-4089-be26-e61a892c6e0a@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+02:34:08.064 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1382.84
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:34:07 GMT
+1 < ETag: W/"49844f4d4d795d8c44ca43eb762e748a"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1371
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: bd082aa0-8cc5-48b0-85c6-32c70e6c2dd0
+1 < X-Runtime: 0.018283
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1371,"name":"Alexander Zavaliy","email":"99a17694-b185-4089-be26-e61a892c6e0a@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T06:04:07.855+05:30","updated_at":"2020-12-29T06:04:07.855+05:30"}}
+
+02:34:08.110 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"4573db63-42ff-4184-9e1b-daf8356fed19@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+02:34:09.299 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1187.45
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 00:34:09 GMT
+1 < ETag: W/"b19e580d5f57d33bd7a6e90ef14e9915"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1372
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 89176c54-0144-4c3f-a146-ed33191aa97f
+1 < X-Runtime: 0.017066
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1372,"name":"Alice from Wonderland","email":"4573db63-42ff-4184-9e1b-daf8356fed19@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T06:04:09.105+05:30","updated_at":"2020-12-29T06:04:09.105+05:30"}}
+
+03:17:52.696 [Test worker] ERROR com.intuit.karate - evaluation of 'karate-config.js' failed: evaluation (js) failed: read('classpath:karate-config.js'), java.lang.RuntimeException: evaluation (js) failed: function() {
+  var env = karate.env; // get java system property 'karate.env'
+  karate.log('karate.env system property was:', env);
+  if (!env) {
+    env = 'dev'; // a custom 'intelligent' default
+  }
+  var config = {
+    gorestUrlBase: 'https://gorest.co.in/public-api/',
+    gorestBearer: '491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe'
+    reqresUrlBase: 'https://reqres.in/api/'
+
+  };
+
+  karate.configure('connectTimeout', 5000);
+  karate.configure('readTimeout', 5000);
+  karate.configure('report', { showLog: true, showAllSteps: false });
+
+  var LM = Java.type('utils.CustomLogModifier');
+  karate.configure('logModifier', new LM())
+
+  var driverConfig = { type:'chromedriver', start: false, webDriverUrl:'https://localhost:4444/wd/hub' };
+  karate.configure('driver', driverConfig);
+  return config;
+}, javax.script.ScriptException: <eval>:10:4 Expected comma but found ident
+    reqresUrlBase: 'https://reqres.in/api/'
+    ^ in <eval> at line number 10 at column number 4
+stack trace: jdk.scripting.nashorn/jdk.nashorn.api.scripting.NashornScriptEngine.throwAsScriptException(NashornScriptEngine.java:477)
+stack trace: com.intuit.karate.ScriptBindings.eval(ScriptBindings.java:155)
+03:18:20.996 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:19:08.123 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:19:08.467 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"4a34ec3c-7eba-4a8e-a857-3dba67e02f34@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:19:09.931 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1460.52
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:19:09 GMT
+1 < ETag: W/"919dc1c1d11f8239df7877502e928fd2"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1375
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: fa2ea21c-f1e2-41dc-afea-11911bbe8b61
+1 < X-Runtime: 0.017622
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1375,"name":"Alexander Zavaliy","email":"4a34ec3c-7eba-4a8e-a857-3dba67e02f34@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T06:49:09.717+05:30","updated_at":"2020-12-29T06:49:09.717+05:30"}}
+
+03:19:09.956 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"7165df85-bd86-4cab-bb03-c4af2fbcb437@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:19:11.151 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1194.38
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:19:10 GMT
+1 < ETag: W/"fcc1d31b6a19061076d49241ac16474b"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1376
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: a9defc70-0684-4831-a1ba-e28c81cf7190
+1 < X-Runtime: 0.016076
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1376,"name":"Alice from Wonderland","email":"7165df85-bd86-4cab-bb03-c4af2fbcb437@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T06:49:10.960+05:30","updated_at":"2020-12-29T06:49:10.960+05:30"}}
+
+03:21:22.317 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:21:22.686 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"fae73e4f-7e44-4cea-b26f-67aaa4ec6d63@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:21:23.983 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1293.84
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:21:23 GMT
+1 < ETag: W/"9c7cad3f70bb9b020f2672e1aec783f1"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1377
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 2e2b13c1-1f8d-484e-9044-afdc7694c524
+1 < X-Runtime: 0.017917
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1377,"name":"Alexander Zavaliy","email":"fae73e4f-7e44-4cea-b26f-67aaa4ec6d63@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T06:51:23.783+05:30","updated_at":"2020-12-29T06:51:23.783+05:30"}}
+
+03:21:24.007 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"158d19bd-d201-4b46-9618-9e118039d372@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:21:25.173 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1164.35
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:21:24 GMT
+1 < ETag: W/"39971d57892427b3879020a260e09a1d"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1378
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 87cfa383-5f6a-45b5-acc8-70f9031b457e
+1 < X-Runtime: 0.016805
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1378,"name":"Alice from Wonderland","email":"158d19bd-d201-4b46-9618-9e118039d372@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T06:51:24.986+05:30","updated_at":"2020-12-29T06:51:24.986+05:30"}}
+
+03:21:25.251 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:21:25.264 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+03:21:26.429 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1163.34
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:21:26 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: b7866d61-bbad-4d60-a827-ae53d61fa8ae
+1 < X-Runtime: 0.002777
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+03:31:53.893 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:31:53.978 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:31:54.283 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"df23e4d7-b9f2-4d2f-af94-2caecd444cf3@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:31:55.794 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1507.10
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:31:55 GMT
+1 < ETag: W/"ab45639af6dd2ed1d110b205b03c7056"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1379
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 813620c9-bd51-4a95-bdb5-1a3e3041ffb1
+1 < X-Runtime: 0.022370
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1379,"name":"Alexander Zavaliy","email":"df23e4d7-b9f2-4d2f-af94-2caecd444cf3@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T07:01:55.567+05:30","updated_at":"2020-12-29T07:01:55.567+05:30"}}
+
+03:31:55.818 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"68a7e265-985d-4921-a883-b7a77fc11c31@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:31:57.025 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1205.84
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:31:56 GMT
+1 < ETag: W/"853063b5bcacec113d99a490a5ccf407"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1380
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: e59e142e-6565-43e9-ab6e-00e042ba87cb
+1 < X-Runtime: 0.018381
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1380,"name":"Alice from Wonderland","email":"68a7e265-985d-4921-a883-b7a77fc11c31@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T07:01:56.828+05:30","updated_at":"2020-12-29T07:01:56.828+05:30"}}
+
+03:32:56.418 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:32:56.513 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:32:56.770 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"d5bd2e53-322d-4012-8388-df9a91dbdb88@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:32:58.074 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1300.73
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:32:57 GMT
+1 < ETag: W/"47056d62c742c44c3101af7b7bec1d78"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1381
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 6c7e2471-7e7a-4daa-a8cd-1abdeb9ef5c3
+1 < X-Runtime: 0.020736
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1381,"name":"Alexander Zavaliy","email":"d5bd2e53-322d-4012-8388-df9a91dbdb88@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T07:02:57.875+05:30","updated_at":"2020-12-29T07:02:57.875+05:30"}}
+
+03:32:58.099 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"28feaa9a-6dc2-49ed-a260-bb7bd217748d@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:32:59.280 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1179.28
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:32:59 GMT
+1 < ETag: W/"4f7b5159b7b394dece0c18e4364d2661"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1382
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 6807af54-7c71-4d6d-b7b1-7ed093d11023
+1 < X-Runtime: 0.016924
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1382,"name":"Alice from Wonderland","email":"28feaa9a-6dc2-49ed-a260-bb7bd217748d@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T07:02:59.088+05:30","updated_at":"2020-12-29T07:02:59.088+05:30"}}
+
+03:33:33.078 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:33:33.158 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:33:33.478 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"e099037f-9472-4a8d-a34d-c61f22c63692@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:33:34.769 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1287.41
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:33:34 GMT
+1 < ETag: W/"ca0cee232990bec889349d5551cf442e"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1383
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 14f90d7c-5107-4983-b859-55fb902c370d
+1 < X-Runtime: 0.016875
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1383,"name":"Alexander Zavaliy","email":"e099037f-9472-4a8d-a34d-c61f22c63692@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T07:03:34.572+05:30","updated_at":"2020-12-29T07:03:34.572+05:30"}}
+
+03:33:34.799 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"0e0c3303-e56a-42af-a6d8-2e47790fe43b@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:33:35.991 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1189.37
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:33:35 GMT
+1 < ETag: W/"ee68e14b5dc5021c7306b2f6308e00d5"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1384
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: f46f6b75-43c6-4a7c-89bd-af1456e6eb1d
+1 < X-Runtime: 0.016246
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1384,"name":"Alice from Wonderland","email":"0e0c3303-e56a-42af-a6d8-2e47790fe43b@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T07:03:35.797+05:30","updated_at":"2020-12-29T07:03:35.797+05:30"}}
+
+03:33:36.075 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/%7B%22code%22:200,%22meta%22:null,%22data%22:%7B%22id%22:726,%22name%22:%22Vimala%20Varma%22,%22email%22:%22varma_vimala@lowe.org%22,%22gender%22:%22Male%22,%22status%22:%22Inactive%22,%22created_at%22:%222020-12-29T03:50:16.212+05:30%22,%22updated_at%22:%222020-12-29T03:50:16.212+05:30%22%7D%7D
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+03:33:37.241 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1164.97
+1 < 404
+1 < Cache-Control: no-cache
+1 < Connection: keep-alive
+1 < Content-Type: text/html; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:33:37 GMT
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Set-Cookie: _gorest_session=i103qFy680DRotlgx%2F3cDKXUgWrX%2BinxBjp993P4dUU1kyrdNlwMf%2BBdN%2F%2BFQF6cPHxncBaFUr4ck5TK5%2FK28mZSQGLvm2Ea1BKCaPYJkclgmsoGkQY4MgaGS2qCM5wOrov%2FE8UsX5g1eBiLWewGj7xexogjQ55ghPLKUZ5pQmMac%2BwY%2FAwJuKFCXHMkZPpO8m16MpMq9l3C2G6mV0qL3wJdRm%2BHQOhdazWTdXRTPAqm%2FgJRlks2meXciWbuwvZA4qArLvveDaTVVOXoSkJfo1MVPTuLe%2Bk%3D--AFJGsLIhbAMsyiI1--7%2FSH1V1iJbszjtsoWH3sVw%3D%3D; path=/; secure; HttpOnly
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 6a6f56de-8d0f-454b-94ae-565ab541795d
+1 < X-Runtime: 0.004567
+1 < X-XSS-Protection: 1; mode=block
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><link href="/favicon.ico" rel="icon" type="image/x-icon" /><title>Page Not Found | GO REST</title><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="tc7q7XeGZZRUhA2hZiF543zl4YnqgqW/uBWayrq6XGqmXvqeXEWSd/p+cYhO8fckKpA5WVdK+FDqeOMCQjiSXg==" /><link rel="stylesheet" media="all" href="/assets/application-013c627477a439b22d5c2963fcef9558e075819846e1742d20e856e666e6b891.css" data-turbolinks-track="reload" /><script src="/packs/js/application-8765e0434971a1f02e37.js" data-turbolinks-track="reload"></script></head><body><div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-exchange-alt"></i> Go Rest</a><button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ml-auto"><li class="nav-item"><a class="nav-link" href="/chandamama-stories"><i class="fas fa-cloud-moon"></i> Chandamama Stories</a></li><li class="nav-item"><a class="nav-link" href="/rest-console"><i class="fab fa-linux"></i> Rest Console</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" area="{:expanded=&gt;&quot;false&quot;}" href="#"><i class="fas fa-tools"></i> Tools <span class="caret"></span></a><div class="dropdown-menu"><a class="dropdown-item" href="/tools/base64-encode-decode">Base64 Encode/Decode</a><a class="dropdown-item" href="/tools/url-encode-decode">Url Encode/Decode</a><a class="dropdown-item" href="/tools/gcode-translator">G-Code Translator</a></div></li><li class="nav-item"><a class="nav-link" href="/consumer/login">Login</a></li></ul></div></div></div><div class="container"><style type="text/css">.code-text code {color: #bdbdbd;display: block;}.code-text code b {color: #81a2be;font-weight: 900;}.code-text code em {color: #b294bb;font-style: unset;}.code-text code i {color: #b5bd68;}.code-text code span {color: #f0c674;}</style><div class="text-center p-5"><h1 class="display-3 mb-5 text-danger" style="font-weight: 900; letter-spacing: 2px;"><i class="fas fa-ghost mr-3"></i>HTTP: 404</h1><p class="lead code-text"><code class="mb-3"><span>this_page</span>.<em>not_found</em> = true</code><code class="mb-3"><span>if</span> (<b>you_spelt_it_wrong</b>) {<span>try_again()</span>}</code><code class="mb-3"><span>else if (<b>we_screwed_up</b>)</span> {<em>alert</em>(<i>"We're really sorry about that."</i>) <span>window</span>.<em>location</em> = home}</code></p></div></div><div class="container"><footer class="footer mt-5"><ul class="list-inline"><li class="list-inline-item">&copy; Go Rest 2020</li><li class="list-inline-item float-lg-right"><a href="/privacy-policy">Privacy Policy</a></li><li class="list-inline-item float-lg-right mr-3"><a href="/contact-us">Contact Us</a></li></ul></footer></div></body></html>
+
+03:33:37.251 [Test worker] WARN  com.intuit.karate - xml parsing failed, response data type set to string: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 2661; The entity "copy" was referenced, but not declared.
+03:33:37.252 [Test worker] ERROR com.intuit.karate - assertion failed: path: $, actual: '<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><link href="/favicon.ico" rel="icon" type="image/x-icon" /><title>Page Not Found | GO REST</title><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="tc7q7XeGZZRUhA2hZiF543zl4YnqgqW/uBWayrq6XGqmXvqeXEWSd/p+cYhO8fckKpA5WVdK+FDqeOMCQjiSXg==" /><link rel="stylesheet" media="all" href="/assets/application-013c627477a439b22d5c2963fcef9558e075819846e1742d20e856e666e6b891.css" data-turbolinks-track="reload" /><script src="/packs/js/application-8765e0434971a1f02e37.js" data-turbolinks-track="reload"></script></head><body><div class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"><div class="container"><a class="navbar-brand" href="/"><i class="fas fa-exchange-alt"></i> Go Rest</a><button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ml-auto"><li class="nav-item"><a class="nav-link" href="/chandamama-stories"><i class="fas fa-cloud-moon"></i> Chandamama Stories</a></li><li class="nav-item"><a class="nav-link" href="/rest-console"><i class="fab fa-linux"></i> Rest Console</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" area="{:expanded=&gt;&quot;false&quot;}" href="#"><i class="fas fa-tools"></i> Tools <span class="caret"></span></a><div class="dropdown-menu"><a class="dropdown-item" href="/tools/base64-encode-decode">Base64 Encode/Decode</a><a class="dropdown-item" href="/tools/url-encode-decode">Url Encode/Decode</a><a class="dropdown-item" href="/tools/gcode-translator">G-Code Translator</a></div></li><li class="nav-item"><a class="nav-link" href="/consumer/login">Login</a></li></ul></div></div></div><div class="container"><style type="text/css">.code-text code {color: #bdbdbd;display: block;}.code-text code b {color: #81a2be;font-weight: 900;}.code-text code em {color: #b294bb;font-style: unset;}.code-text code i {color: #b5bd68;}.code-text code span {color: #f0c674;}</style><div class="text-center p-5"><h1 class="display-3 mb-5 text-danger" style="font-weight: 900; letter-spacing: 2px;"><i class="fas fa-ghost mr-3"></i>HTTP: 404</h1><p class="lead code-text"><code class="mb-3"><span>this_page</span>.<em>not_found</em> = true</code><code class="mb-3"><span>if</span> (<b>you_spelt_it_wrong</b>) {<span>try_again()</span>}</code><code class="mb-3"><span>else if (<b>we_screwed_up</b>)</span> {<em>alert</em>(<i>"We're really sorry about that."</i>) <span>window</span>.<em>location</em> = home}</code></p></div></div><div class="container"><footer class="footer mt-5"><ul class="list-inline"><li class="list-inline-item">&copy; Go Rest 2020</li><li class="list-inline-item float-lg-right"><a href="/privacy-policy">Privacy Policy</a></li><li class="list-inline-item float-lg-right mr-3"><a href="/contact-us">Contact Us</a></li></ul></footer></div></body></html>', expected: null, reason: actual value is not null
+03:34:54.310 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:34:54.414 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:34:54.671 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"f4329340-04c2-488b-91e4-f7e2926d3c21@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:34:55.996 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1322.59
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:34:55 GMT
+1 < ETag: W/"bbf33abbd2505b4ebef57fb21b7ae866"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1385
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 8ac93789-0997-4028-b317-7b983dee4fa0
+1 < X-Runtime: 0.020278
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1385,"name":"Alexander Zavaliy","email":"f4329340-04c2-488b-91e4-f7e2926d3c21@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T07:04:55.793+05:30","updated_at":"2020-12-29T07:04:55.793+05:30"}}
+
+03:34:56.021 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"852da085-eb92-49ee-8960-e14d250e4ffb@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:34:57.248 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1225.92
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:34:57 GMT
+1 < ETag: W/"bd8609c98847f87ebbb14016d0b8112f"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1386
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 9b5e7e91-c360-4d8f-8f9e-83dc1887a203
+1 < X-Runtime: 0.016561
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1386,"name":"Alice from Wonderland","email":"852da085-eb92-49ee-8960-e14d250e4ffb@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T07:04:57.049+05:30","updated_at":"2020-12-29T07:04:57.049+05:30"}}
+
+03:34:57.346 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+03:34:58.526 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1178.89
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:34:58 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: dd69dd77-372a-440d-b8a0-20b367a4af1c
+1 < X-Runtime: 0.002647
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+03:36:25.135 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:36:25.229 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:36:25.515 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 128
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"db0f3a39-df62-4aea-a0d4-3ac641595e5b@gmail.com","name":"#(Alexander Zavaliy)","gender":"#(Male)","status":"#(Active)"}
+
+03:36:26.853 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1334.82
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:36:26 GMT
+1 < ETag: W/"435cdd4bb513467b487fffc2a9bbe531"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 7733d0a1-eeaf-4feb-9597-f80aca9bf2b4
+1 < X-Runtime: 0.028321
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"gender","message":"can be Male or Female"},{"field":"status","message":"can be Active or Inactive"}]}
+
+03:36:26.860 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.code, actual: 422, expected: 201, reason: not equal (Integer)
+03:36:26.892 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 134
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"3d8b1374-03ff-4882-b7c5-7cabe17c04f4@gmail.com","name":"#(Alice from Wonderland)","gender":"#(Female)","status":"#(Active)"}
+
+03:36:28.047 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1154.09
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:36:27 GMT
+1 < ETag: W/"435cdd4bb513467b487fffc2a9bbe531"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: b2cb8cd9-4b4d-4982-b812-7a510be094b9
+1 < X-Runtime: 0.019376
+1 < X-XSS-Protection: 1; mode=block
+{"code":422,"meta":null,"data":[{"field":"gender","message":"can be Male or Female"},{"field":"status","message":"can be Active or Inactive"}]}
+
+03:36:28.049 [Test worker] ERROR com.intuit.karate - assertion failed: path: $.code, actual: 422, expected: 201, reason: not equal (Integer)
+03:36:28.145 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+03:36:29.331 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1184.78
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:36:29 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: ac428cf2-c60c-44a4-863d-264a1e54988a
+1 < X-Runtime: 0.004339
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+03:37:27.178 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:37:27.271 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+03:37:27.522 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"8ec54c6f-448f-4147-b893-14200cb25566@gmail.com","name":"Alexander Zavaliy","gender":"Male","status":"Active"}
+
+03:37:28.810 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1284.31
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:37:28 GMT
+1 < ETag: W/"4ad4b0b04f6fc7ae9b2870cdcad8db0e"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1387
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: c068a2d5-03d8-41ba-a0d9-bcc965b2ddce
+1 < X-Runtime: 0.017734
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1387,"name":"Alexander Zavaliy","email":"8ec54c6f-448f-4147-b893-14200cb25566@gmail.com","gender":"Male","status":"Active","created_at":"2020-12-29T07:07:28.611+05:30","updated_at":"2020-12-29T07:07:28.611+05:30"}}
+
+03:37:28.833 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{"email":"65c0bbfc-9aa6-4ec2-8d0f-408627c2fb07@gmail.com","name":"Alice from Wonderland","gender":"Female","status":"Active"}
+
+03:37:29.983 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1147.78
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:37:29 GMT
+1 < ETag: W/"28adf29e041045412f4aa21f65dd9c53"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1388
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 9294706d-eeb2-46ce-b253-22df7013ecaa
+1 < X-Runtime: 0.017008
+1 < X-XSS-Protection: 1; mode=block
+{"code":201,"meta":null,"data":{"id":1388,"name":"Alice from Wonderland","email":"65c0bbfc-9aa6-4ec2-8d0f-408627c2fb07@gmail.com","gender":"Female","status":"Active","created_at":"2020-12-29T07:07:29.798+05:30","updated_at":"2020-12-29T07:07:29.798+05:30"}}
+
+03:37:30.075 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+03:37:31.221 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1144.68
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 01:37:31 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 0d0043db-a086-42fa-8557-b069a81ba8bb
+1 < X-Runtime: 0.002121
+1 < X-XSS-Protection: 1; mode=block
+{"code":200,"meta":null,"data":{"id":726,"name":"Vimala Varma","email":"varma_vimala@lowe.org","gender":"Male","status":"Inactive","created_at":"2020-12-29T03:50:16.212+05:30","updated_at":"2020-12-29T03:50:16.212+05:30"}}
+
+04:24:38.779 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+04:24:38.874 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+04:24:39.128 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "15bc0b58-15d5-4c49-93e1-90018aca121b@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+04:24:40.647 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1515.70
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 02:24:40 GMT
+1 < ETag: W/"b42dc1e3cbc1c772bd227c9333b7e9a5"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1394
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 0ab0207c-60a6-4b01-a849-427b1594ff9b
+1 < X-Runtime: 0.018923
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1394,
+    "name": "Alexander Zavaliy",
+    "email": "15bc0b58-15d5-4c49-93e1-90018aca121b@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T07:54:40.438+05:30",
+    "updated_at": "2020-12-29T07:54:40.438+05:30"
+  }
+}
+
+
+04:24:40.678 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "e16a177b-7b46-419d-a8db-664be65ce637@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+04:24:41.979 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1296.88
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 02:24:41 GMT
+1 < ETag: W/"3c085a32793913999c8428cafb276b1e"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1395
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 317aeb0b-aefb-4508-bd51-5e5878c9ecd4
+1 < X-Runtime: 0.104497
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1395,
+    "name": "Alice from Wonderland",
+    "email": "e16a177b-7b46-419d-a8db-664be65ce637@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T07:54:41.692+05:30",
+    "updated_at": "2020-12-29T07:54:41.692+05:30"
+  }
+}
+
+
+04:24:42.059 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+04:24:43.233 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1172.04
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 02:24:43 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 8200613e-ae06-403e-b53f-2ae8d365009d
+1 < X-Runtime: 0.002631
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+05:50:06.073 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+05:50:06.191 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+05:50:06.454 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "35cf9633-eb72-4621-9ca5-2bafe81402b6@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+05:50:07.955 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1498.00
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 03:50:07 GMT
+1 < ETag: W/"8c2bc26a17e770035ad1892ef91b13b1"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1402
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 33e6d527-e31b-419c-a584-59204765606d
+1 < X-Runtime: 0.017998
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1402,
+    "name": "Alexander Zavaliy",
+    "email": "35cf9633-eb72-4621-9ca5-2bafe81402b6@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T09:20:07.750+05:30",
+    "updated_at": "2020-12-29T09:20:07.750+05:30"
+  }
+}
+
+
+05:50:07.993 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "d39a31cd-2aa2-4afb-b0dc-a76b7541bfb5@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+05:50:09.196 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1201.00
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 03:50:09 GMT
+1 < ETag: W/"aa712623cdf2c2af8dac764996cc63cc"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1403
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 2b07dc07-d30c-44d1-a30c-7da092efa88f
+1 < X-Runtime: 0.019247
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1403,
+    "name": "Alice from Wonderland",
+    "email": "d39a31cd-2aa2-4afb-b0dc-a76b7541bfb5@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T09:20:09.000+05:30",
+    "updated_at": "2020-12-29T09:20:09.000+05:30"
+  }
+}
+
+
+05:50:09.281 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+05:50:10.458 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1174.73
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 03:50:10 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 83128451-ba05-49fd-ba72-410f909f4408
+1 < X-Runtime: 0.002545
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+05:50:10.498 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+05:50:10.505 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+05:50:10.600 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 93.58
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 6212
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 60908e2c2a4b2dec-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 03:50:10 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=17X5UquT15zCvCJVQ7eP2kVf9NC3ZR%2FDy01MmG1%2F%2FhxGy7zyiRIDeFDm8z3Eakui3li%2FP6EaI3UrD495Dn9%2FWP7cIyHCT9HRUZY%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d267623da1d946f1052b4e7b81ab1d2591609213810; expires=Thu, 28-Jan-21 03:50:10 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e372f9600002decc8bf7000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+05:50:10.642 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+05:50:10.653 [Test worker] INFO  com.intuit.karate - [print] {
+  "name": "Alexander",
+  "surname": "Zavaliy"
+}
+
+06:11:12.697 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:11:12.774 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:11:13.023 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "c5baf98e-b332-415d-86fb-e1c135cddf4e@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+06:11:14.464 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1437.71
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:11:14 GMT
+1 < ETag: W/"49dd368dec9a48b8a6279f7c5c914cbc"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1410
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: f495f619-57e8-4a8f-b593-dabf6fc42254
+1 < X-Runtime: 0.019571
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1410,
+    "name": "Alexander Zavaliy",
+    "email": "c5baf98e-b332-415d-86fb-e1c135cddf4e@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T09:41:14.257+05:30",
+    "updated_at": "2020-12-29T09:41:14.257+05:30"
+  }
+}
+
+
+06:11:14.492 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "2c143c3c-e815-42eb-ba48-3c10f02e8f31@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+06:11:15.661 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1168.34
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:11:15 GMT
+1 < ETag: W/"77cccfddc0374dc919112029371e68b4"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1411
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: e8ddfc1a-2351-4d1a-bb88-a052a700c3a9
+1 < X-Runtime: 0.017407
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1411,
+    "name": "Alice from Wonderland",
+    "email": "2c143c3c-e815-42eb-ba48-3c10f02e8f31@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T09:41:15.472+05:30",
+    "updated_at": "2020-12-29T09:41:15.472+05:30"
+  }
+}
+
+
+06:11:15.780 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:11:16.972 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1190.06
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:11:16 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 69cd5143-c77a-4073-b435-e8241b06b928
+1 < X-Runtime: 0.002552
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+06:11:17.005 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:11:17.009 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:11:17.300 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 289.41
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < CF-Cache-Status: REVALIDATED
+1 < CF-RAY: 6090ad17cd7c2307-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:11:17 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=HTyJOtoWFAbMiSlkQ7HQPhi51LWiJwKNA4LtFQE4XA1cyz0OFgraEtNvQTk2JXtc0B3cYe3NTocnx%2BZ0JnQFyYRaEFgNAmdd14Y%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d2969fa246dafec4e7b855b6c2d213ac51609215077; expires=Thu, 28-Jan-21 04:11:17 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e4a82dc000023073bb74000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+06:17:28.647 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:17:28.747 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:17:29.029 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "7c3b948d-4df3-47f8-b329-d964cef0ca09@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+06:17:30.344 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1310.38
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:17:30 GMT
+1 < ETag: W/"9c979c903ab039b8aad2630987291f5b"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1412
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 48c78d6b-4e9d-44ad-834d-541d87156abb
+1 < X-Runtime: 0.021888
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1412,
+    "name": "Alexander Zavaliy",
+    "email": "7c3b948d-4df3-47f8-b329-d964cef0ca09@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T09:47:30.136+05:30",
+    "updated_at": "2020-12-29T09:47:30.136+05:30"
+  }
+}
+
+
+06:17:30.366 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "453ca0af-3706-4bf0-a36f-b6ebba719fd6@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+06:17:31.560 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1192.78
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:17:31 GMT
+1 < ETag: W/"07d977b43c61378b59bb41ad88c148d6"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1413
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 99276e4a-08b9-4403-80a0-cd487888016d
+1 < X-Runtime: 0.018334
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1413,
+    "name": "Alice from Wonderland",
+    "email": "453ca0af-3706-4bf0-a36f-b6ebba719fd6@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T09:47:31.365+05:30",
+    "updated_at": "2020-12-29T09:47:31.365+05:30"
+  }
+}
+
+
+06:17:31.650 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+06:17:32.822 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1170.23
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:17:32 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: bd5aa97c-e149-4fc2-8fac-9096df33f171
+1 < X-Runtime: 0.002802
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+06:17:32.857 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:17:32.862 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+06:17:32.954 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 89.38
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 375
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 6090b644cd2d22fb-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:17:32 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=OAdY17K2%2BkYTPdWKzdgxj3yzUOoFH87%2FSZzbkdqDKjIXlqoXav030%2BBM34qnh5lfNgPG6%2F6JKZJ42ckxM9iSETGZyI%2Ft2bMABh4%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=dbe6774121e9fb60901cbb357f08526b31609215452; expires=Thu, 28-Jan-21 04:17:32 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e503f00000022fbb33e0000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+06:34:29.650 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:34:29.723 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:34:29.930 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "cdb3eafa-ff33-49d7-a24d-d205c705a4bd@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+06:34:31.496 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1562.61
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:34:31 GMT
+1 < ETag: W/"14b8303bb6eb3299c24d6b67f2f395cf"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1414
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 2a119394-b694-402f-b7a4-dcae9dd1c7b7
+1 < X-Runtime: 0.019296
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1414,
+    "name": "Alexander Zavaliy",
+    "email": "cdb3eafa-ff33-49d7-a24d-d205c705a4bd@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T10:04:31.298+05:30",
+    "updated_at": "2020-12-29T10:04:31.298+05:30"
+  }
+}
+
+
+06:34:31.517 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "fe492784-5d3b-4348-91ed-21090a1af23b@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+06:34:32.668 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1149.76
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:34:32 GMT
+1 < ETag: W/"d2f2064953de40590f8f40b6e014275e"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1415
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 763dbf26-ea88-42ae-b946-f7d74e2ba17e
+1 < X-Runtime: 0.016835
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1415,
+    "name": "Alice from Wonderland",
+    "email": "fe492784-5d3b-4348-91ed-21090a1af23b@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T10:04:32.484+05:30",
+    "updated_at": "2020-12-29T10:04:32.484+05:30"
+  }
+}
+
+
+06:34:32.724 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:34:33.894 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1169.09
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:34:33 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 82e6a9d4-16b9-4f6b-95da-45fe6b5852ea
+1 < X-Runtime: 0.002557
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+06:34:33.931 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:34:33.936 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:34:34.038 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 99.94
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 1397
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 6090cf329f062d8b-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:34:34 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=hy%2BLNbvJ%2FVfgXrdJ65o3nV0JkeUyNJOtSVFsKXD7R0AIBe14SNCEAyBtMX19%2FfKVjLKtu%2B6gTwPMJ0tercJ3YtJs%2BJpf2WingBE%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=de1e464f36c20c69bc6481b46a3f60a791609216474; expires=Thu, 28-Jan-21 04:34:34 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e5fd39b00002d8bc2aa1000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+06:38:31.932 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:32.010 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:32.228 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "273f51e5-c7bc-46fa-92c6-bf5623190a0a@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+06:38:33.507 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1276.16
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:33 GMT
+1 < ETag: W/"7b9d922726609bfa493479c316f85122"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1416
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 19aba766-548c-4a4a-8661-c73d16f77451
+1 < X-Runtime: 0.017486
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1416,
+    "name": "Alexander Zavaliy",
+    "email": "273f51e5-c7bc-46fa-92c6-bf5623190a0a@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T10:08:33.307+05:30",
+    "updated_at": "2020-12-29T10:08:33.307+05:30"
+  }
+}
+
+
+06:38:33.531 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "1bf0ad36-4e60-4a32-892f-bb56ded06761@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+06:38:34.687 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1153.79
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:34 GMT
+1 < ETag: W/"dcc84e2feb9e4afc69b63c68c5d38b89"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1417
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: cb3e4b0a-8318-4b9c-82f0-61d00b001989
+1 < X-Runtime: 0.016745
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1417,
+    "name": "Alice from Wonderland",
+    "email": "1bf0ad36-4e60-4a32-892f-bb56ded06761@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T10:08:34.501+05:30",
+    "updated_at": "2020-12-29T10:08:34.501+05:30"
+  }
+}
+
+
+06:38:34.736 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:38:35.919 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1180.21
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:35 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 51399241-a949-4081-ba82-b660143ac778
+1 < X-Runtime: 0.002451
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+06:38:35.949 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:35.954 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:38:36.051 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 94.38
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 1639
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 6090d51b2f9922f5-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:36 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=%2Bjgh0BPZK3tz3u6gtz7wWiLDF5PE%2B0znNayvOANZvo9HGPanEFKd2r7TPh%2Fra0Rn8H%2FnuHQxuazIhxlcgZ3gPg6bqQaPq1nyI8U%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=dfd8d3952f0bc2cee9b121894ba7d51a11609216716; expires=Thu, 28-Jan-21 04:38:36 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e6384fb000022f51aad6000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+06:38:53.301 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:53.381 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:53.605 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "1620c890-1451-4fc2-99c8-bdcf64c5e15f@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+06:38:54.902 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1293.06
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:54 GMT
+1 < ETag: W/"4118b0fc6b2b292fb6f2ca834e431c99"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1418
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: ba0bfc0c-c043-45c9-9999-26ca50655e4b
+1 < X-Runtime: 0.016980
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1418,
+    "name": "Alexander Zavaliy",
+    "email": "1620c890-1451-4fc2-99c8-bdcf64c5e15f@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T10:08:54.701+05:30",
+    "updated_at": "2020-12-29T10:08:54.701+05:30"
+  }
+}
+
+
+06:38:54.923 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+{
+  "email": "80a54787-1d0f-463f-ada6-f814402b6c1d@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+06:38:56.085 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1161.35
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:55 GMT
+1 < ETag: W/"38cc23120244282c08ee432790b44144"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1419
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 58fee76b-9063-4a3f-8e91-32a7f3d3f996
+1 < X-Runtime: 0.019683
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1419,
+    "name": "Alice from Wonderland",
+    "email": "80a54787-1d0f-463f-ada6-f814402b6c1d@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T10:08:55.900+05:30",
+    "updated_at": "2020-12-29T10:08:55.900+05:30"
+  }
+}
+
+
+06:38:56.136 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:38:57.274 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1135.80
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:57 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 58e35a2d-ec85-421f-91ee-e0199386c773
+1 < X-Runtime: 0.002716
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+06:38:57.307 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+06:38:57.311 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/1.8.0_265)
+
+06:38:57.402 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 89.20
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 1660
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 6090d5a09bef3280-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 04:38:57 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=fAJ8HHvvo5JdBV3vsaisfS25QcGNErhTYExdbJviwTMDdRQXDmYvary2w1EFer7QaCrusjJ0FYZGMyoscrDAGQji0iR2p8kLb%2Bc%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d463a1ce1ac3f5a5b27e4f6b62e685f181609216737; expires=Thu, 28-Jan-21 04:38:57 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e63d86300003280459e5000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+
+07:00:09.719 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+07:00:09.808 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+07:00:10.091 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 119
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "af19bb6f-4942-45e5-a5f5-9819488c7458@gmail.com",
+  "name": "Alexander Zavaliy",
+  "gender": "Male",
+  "status": "Active"
+}
+
+
+07:00:11.505 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1409.55
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 05:00:11 GMT
+1 < ETag: W/"f9706571a3d2725af9c3f5d4f0cf0a6a"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1420
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 8a860410-20b1-4e90-86ce-f7d88dda5e05
+1 < X-Runtime: 0.017119
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1420,
+    "name": "Alexander Zavaliy",
+    "email": "af19bb6f-4942-45e5-a5f5-9819488c7458@gmail.com",
+    "gender": "Male",
+    "status": "Active",
+    "created_at": "2020-12-29T10:30:11.301+05:30",
+    "updated_at": "2020-12-29T10:30:11.301+05:30"
+  }
+}
+
+
+07:00:11.528 [Test worker] DEBUG com.intuit.karate - request:
+1 > POST https://gorest.co.in/public-api/users
+1 > Accept-Encoding: gzip,deflate
+1 > Authorization: Bearer 491bc842c82b98e2239c673393caef33d6a895bf9233ddedc2327a78274575fe
+1 > Connection: Keep-Alive
+1 > Content-Length: 125
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+{
+  "email": "450b1f40-ce01-4f56-86fa-2cd540e77792@gmail.com",
+  "name": "Alice from Wonderland",
+  "gender": "Female",
+  "status": "Active"
+}
+
+
+07:00:12.715 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1184.87
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 05:00:12 GMT
+1 < ETag: W/"d59c67832b96d84e6648aeeed79bd7c9"
+1 < Expect-CT: enforce; max-age=3600
+1 < Location: https://gorest.co.in/public-api/users/1421
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 53cc6fdb-2670-4142-b643-fff1d880782b
+1 < X-Runtime: 0.016827
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 201,
+  "meta": null,
+  "data": {
+    "id": 1421,
+    "name": "Alice from Wonderland",
+    "email": "450b1f40-ce01-4f56-86fa-2cd540e77792@gmail.com",
+    "gender": "Female",
+    "status": "Active",
+    "created_at": "2020-12-29T10:30:12.522+05:30",
+    "updated_at": "2020-12-29T10:30:12.522+05:30"
+  }
+}
+
+
+07:00:12.810 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://gorest.co.in/public-api/users/726
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: gorest.co.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+07:00:13.993 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 1180.42
+1 < 200
+1 < Cache-Control: max-age=0, private, must-revalidate
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 05:00:13 GMT
+1 < ETag: W/"421c1c80538d211b1f36375233f98078"
+1 < Expect-CT: enforce; max-age=3600
+1 < Referrer-Policy: strict-origin-when-cross-origin
+1 < Server: nginx
+1 < Strict-Transport-Security: max-age=31536000; includeSubDomains
+1 < Transfer-Encoding: chunked
+1 < Vary: [Accept-Encoding, Origin]
+1 < X-Content-Type-Options: nosniff
+1 < X-Download-Options: noopen
+1 < X-Frame-Options: [SAMEORIGIN, sameorigin]
+1 < X-Permitted-Cross-Domain-Policies: none
+1 < X-Request-Id: 838fbb59-97ae-4c90-98a3-6bd4ccff9f32
+1 < X-Runtime: 0.002571
+1 < X-XSS-Protection: 1; mode=block
+{
+  "code": 200,
+  "meta": null,
+  "data": {
+    "id": 726,
+    "name": "Vimala Varma",
+    "email": "varma_vimala@lowe.org",
+    "gender": "Male",
+    "status": "Inactive",
+    "created_at": "2020-12-29T03:50:16.212+05:30",
+    "updated_at": "2020-12-29T03:50:16.212+05:30"
+  }
+}
+
+
+07:00:14.041 [Test worker] INFO  com.intuit.karate - karate.env system property was:  
+07:00:14.046 [Test worker] DEBUG com.intuit.karate - request:
+1 > GET https://reqres.in/api/users?page=2
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Host: reqres.in
+1 > User-Agent: Apache-HttpClient/4.5.12 (Java/11.0.9.1)
+
+07:00:14.134 [Test worker] DEBUG com.intuit.karate - response time in milliseconds: 86.79
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Age: 2937
+1 < CF-Cache-Status: HIT
+1 < CF-RAY: 6090f4cc39192dec-KBP
+1 < Cache-Control: max-age=14400
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Tue, 29 Dec 2020 05:00:14 GMT
+1 < Etag: W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"
+1 < Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+1 < NEL: {"report_to":"cf-nel","max_age":604800}
+1 < Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=ZzuMDCsojXGPUh0AiBO1YBWqG0n6BVI6QrOgq33hCmKhihMpe5G%2BG0icQJTTAB2aBo2xH2VycfazhKzcwRtwz6lKiGu0ZgsXH7k%3D"}],"group":"cf-nel","max_age":604800}
+1 < Server: cloudflare
+1 < Set-Cookie: __cfduid=d2b941c3a7ab7bb7ecdec14c7934bb3861609218014; expires=Thu, 28-Jan-21 05:00:14 GMT; path=/; domain=.reqres.in; HttpOnly; SameSite=Lax; Secure
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < Via: 1.1 vegur
+1 < X-Powered-By: Express
+1 < cf-request-id: 074e7753a100002decdc160000000001
+{
+  "page": 2,
+  "per_page": 6,
+  "total": 12,
+  "total_pages": 2,
+  "data": [
+    {
+      "id": 7,
+      "email": "michael.lawson@reqres.in",
+      "first_name": "Michael",
+      "last_name": "Lawson",
+      "avatar": "https://reqres.in/img/faces/7-image.jpg"
+    },
+    {
+      "id": 8,
+      "email": "lindsay.ferguson@reqres.in",
+      "first_name": "Lindsay",
+      "last_name": "Ferguson",
+      "avatar": "https://reqres.in/img/faces/8-image.jpg"
+    },
+    {
+      "id": 9,
+      "email": "tobias.funke@reqres.in",
+      "first_name": "Tobias",
+      "last_name": "Funke",
+      "avatar": "https://reqres.in/img/faces/9-image.jpg"
+    },
+    {
+      "id": 10,
+      "email": "byron.fields@reqres.in",
+      "first_name": "Byron",
+      "last_name": "Fields",
+      "avatar": "https://reqres.in/img/faces/10-image.jpg"
+    },
+    {
+      "id": 11,
+      "email": "george.edwards@reqres.in",
+      "first_name": "George",
+      "last_name": "Edwards",
+      "avatar": "https://reqres.in/img/faces/11-image.jpg"
+    },
+    {
+      "id": 12,
+      "email": "rachel.howell@reqres.in",
+      "first_name": "Rachel",
+      "last_name": "Howell",
+      "avatar": "https://reqres.in/img/faces/12-image.jpg"
+    }
+  ],
+  "support": {
+    "url": "https://reqres.in/#support-heading",
+    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+  }
+}
+
+

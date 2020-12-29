@@ -1,0 +1,54 @@
+import io.gatling.gradle.LogHttp
+
+plugins {
+    id 'scala'
+    id "io.gatling.gradle" version "3.5.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+
+ext {
+    gatlingVer = "3.5.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.scala-lang', name: 'scala-library', version: '2.12.12'
+    testImplementation group: 'io.gatling', name: 'gatling-core', version: "$gatlingVer"
+    testImplementation group: 'io.gatling', name: 'gatling-recorder', version: "$gatlingVer"
+    testImplementation group: 'io.gatling', name: 'gatling-app', version: "$gatlingVer"
+
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "$junitVer"
+}
+
+test {
+    useJUnitPlatform()
+    outputs.upToDateWhen { false }
+}
+
+sourceSets {
+    gatling {
+        scala.srcDir "src/test/scala"
+        resources.srcDir "src/test/resources"
+    }
+}
+
+gatling {
+    scalaVersion = "2.12.12"
+    toolVersion = "3.5.0"
+    jvmArgs = ['-server', '-Xms512M', '-Xmx512M']
+    systemProperties = ['file.encoding': 'UTF-8']
+    simulations = {
+        include "simulations/*.scala"
+    }
+    logHttp = LogHttp.ALL
+}
+
+gatlingRun {
+    systemProperties System.getProperties()
+}

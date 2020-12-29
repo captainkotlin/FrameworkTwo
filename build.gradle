@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lombokVer = "1.18.16"
+}
+
+allprojects {
+    apply plugin: "java"
+    ext {
+        junitVer = "5.7.0"
+    }
+    dependencies {
+        testImplementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+        testCompileOnly "org.projectlombok:lombok:$lombokVer"
+        testAnnotationProcessor "org.projectlombok:lombok:$lombokVer"
+    }
+}

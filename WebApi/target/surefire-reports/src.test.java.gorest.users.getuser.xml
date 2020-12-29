@@ -1,0 +1,8 @@
+<testsuite failures="0" name="src/test/java/gorest/users/getuser.feature" skipped="0" tests="1" time="1.530107">
+  <testcase classname="src.test.java.gorest.users.getuser" name="1" time="1.530107">
+    <system-out>* url "https://gorest.co.in/public-api/users/726" ......................... passed
+Given def userId = 726 .................................................... passed
+When method get ........................................................... passed
+Then match response == .................................................... passed</system-out>
+  </testcase>
+</testsuite>
